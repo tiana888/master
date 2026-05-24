@@ -1,0 +1,12 @@
+result/
+results/
+models/
+sdxl_models/
+dataset/
+datasets/
+wikiart_dataset/
+wikiart_extracted_images/
+assets/wikiart/
+debug_outputs/session_extract/
+__pycache__/
+*.pyc
