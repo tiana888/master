@@ -1,4 +1,5 @@
 ﻿import os
+import argparse
 import torch
 import cv2
 import numpy as np
@@ -6,23 +7,44 @@ from PIL import Image, ImageEnhance, ImageFilter
 import pillow_avif
 import zlib
 
-from pipeline_stable_diffusion_xl import StableDiffusionXLPipeline
-from ip_adapter import IPAdapterPlusXL
+from pipeline_stable_diffusion_xl_equal_attention import StableDiffusionXLPipeline
+from ip_adapter_equal_attention import IPAdapterPlusXL
 from util.torch_compat import ensure_supported_cuda_runtime
 
 
-RUNTIME_MODE_TAG = "color_texture_geometry"
+RUNTIME_MODE_TAG = "color_texture_geometry_equal_attention"
 TARGET_BLOCKS = ["down_blocks", "mid_block", "up_blocks"]
+
+
+def _parse_runtime_args():
+    parser = argparse.ArgumentParser(
+        description="Run equal-attention SADis inference with optional color/geometry/texture references."
+    )
+    parser.add_argument("--input-color", default=None)
+    parser.add_argument("--input-geometry", default=None)
+    parser.add_argument("--input-texture", default=None)
+    parser.add_argument("--save-dir", default=None)
+    parser.add_argument("--skip-existing", action="store_true")
+    return parser.parse_args()
+
+
+RUNTIME_ARGS = _parse_runtime_args()
+
+
+def _normalize_optional_text(value):
+    if value is None:
+        return None
+    value = value.strip()
+    if not value or value.lower() in {"none", "null"}:
+        return None
+    return value
 
 
 def _get_env_path_override(name, default):
     value = os.environ.get(name)
     if value is None:
         return default
-    value = value.strip()
-    if not value or value.lower() in {"none", "null"}:
-        return None
-    return value
+    return _normalize_optional_text(value)
 
 
 def _get_env_text_override(name, default):
@@ -42,9 +64,16 @@ def _get_env_int_override(name, default):
     return int(value)
 
 
+def _get_env_bool_override(name, default):
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
 # 2026-04-13 temple texture_geometry reproduction setup.
 INPUT_COLOR = r"assets/color/color05.jpg" # Optional. Enables the color stream when set.
-INPUT_GEOMETRY = r"assets/geometry/animal08.jpeg"  # Optional. Enables the geometry stream when set.
+INPUT_GEOMETRY = r"assets/geometry/face05.jpeg"  # Optional. Enables the geometry stream when set.
 INPUT_TEXTURE = r"assets/texture/artwork_3.jpg"  # Optional. Enables the texture stream when set.
 # INPUT_GEOMETRY = None  # Optional. Enables the geometry stream when set.
 # INPUT_TEXTURE = None  # Optional. Enables the texture stream when set.
@@ -52,6 +81,12 @@ INPUT_TEXTURE = r"assets/texture/artwork_3.jpg"  # Optional. Enables the texture
 INPUT_COLOR = _get_env_path_override("SADIS_INPUT_COLOR", INPUT_COLOR)
 INPUT_GEOMETRY = _get_env_path_override("SADIS_INPUT_GEOMETRY", INPUT_GEOMETRY)
 INPUT_TEXTURE = _get_env_path_override("SADIS_INPUT_TEXTURE", INPUT_TEXTURE)
+if RUNTIME_ARGS.input_color is not None:
+    INPUT_COLOR = _normalize_optional_text(RUNTIME_ARGS.input_color)
+if RUNTIME_ARGS.input_geometry is not None:
+    INPUT_GEOMETRY = _normalize_optional_text(RUNTIME_ARGS.input_geometry)
+if RUNTIME_ARGS.input_texture is not None:
+    INPUT_TEXTURE = _normalize_optional_text(RUNTIME_ARGS.input_texture)
 
 
 DEFAULT_NEGATIVE_PROMPT = (
@@ -63,16 +98,19 @@ DEFAULT_NEGATIVE_PROMPT = (
     "dull, desaturated, greyish, monochromatic, low saturation, flat lighting"
 )
 
-save_dir = r"results/disentangled/18.4.8/repro_20260504"
+save_dir = r"results/disentangled/equal_attention/repro_20260504"
 save_dir = _get_env_text_override("SADIS_SAVE_DIR", save_dir)
+if RUNTIME_ARGS.save_dir is not None:
+    save_dir = RUNTIME_ARGS.save_dir
 os.makedirs(save_dir, exist_ok=True)
+SKIP_EXISTING = _get_env_bool_override("SADIS_SKIP_EXISTING", False) or RUNTIME_ARGS.skip_existing
 
 # prompt_list = ["A detailed landscape photograph of a rugged coastal lighthouse scene at sunset. A tall, weathered stone lighthouse with classic red and white stripes stands on a rocky promontory. Attached to the tower is a small, stone keeper's cottage with a slate roof, a smoking chimney, and a neatly stacked pile of firewood. A stone wall encloses a small garden patch with hardy coastal plants. A winding dirt path lined with weathered wooden fencing leads toward the structure. Below the cliff, crashing ocean waves hit jagged rocks covered in barnacles and dark seaweed. Driftwood, old lobster traps, and tangled fishing nets are scattered on a small pebble beach. Seagulls are circling overhead and perched on the rocks. The lighthouse lamp is just beginning to glow, casting a warm beam. The light is golden hour."
 # ]
 # prompt_list = ["a house with trees"]
 prompt_list = [
     (
-        "A portrait of a man with beard Frontal Face"
+        "a man protrait"
     )
 ]
 
@@ -103,9 +141,9 @@ mid_end_ratio = 0.70
 # color_stage_factors = (0.55, 0.80, 1.0)
 # geometry_stage_factors = (1.35, 1.05, 0.65)
 # texture_stage_factors = (0.38, 0.72, 0.82)
-color_stage_factors = (1.0, 1.0, 1.0)   # 隨步數增加，色彩應越穩定
-geometry_stage_factors = (1.0, 1.0, 0.0) # 後期幾何完全退場，交給 color/texture 收尾
-texture_stage_factors = (1.0, 1.0, 1.25)  # 後期由 texture 主導表面細節
+color_stage_factors = (1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0)
+geometry_stage_factors = (1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0)
+texture_stage_factors = (1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0)
 punish_weight = 0.0003
 punish_type = "soft-weight"
 SAVE_GEOMETRY_PREPROCESS_DEBUG = True
@@ -499,6 +537,19 @@ if not pure_sdxl_mode:
 
 
 for prompt in prompt_list:
+    safe_prompt = "".join(ch if ch.isalnum() or ch in ("_", "-") else "_" for ch in prompt)[:40]
+    if pure_sdxl_mode:
+        svname = f"{safe_prompt}_sdxl.png"
+    else:
+        svname = (
+            f"{safe_prompt}_{RUNTIME_MODE_TAG}_"
+            f"C{effective_color_scale}_G{effective_geometry_scale}_T{effective_texture_scale}.png"
+        )
+    output_path = os.path.join(save_dir, svname)
+    if SKIP_EXISTING and os.path.exists(output_path):
+        print(f"[SKIP] Existing output: {output_path}")
+        continue
+
     generator = _get_generator(seed, device)
     if pure_sdxl_mode:
         images = pipe(
@@ -552,14 +603,6 @@ for prompt in prompt_list:
         mode_tag = RUNTIME_MODE_TAG
 
     final_img = _enhance_final_output(images[0])
-    safe_prompt = "".join(ch if ch.isalnum() or ch in ("_", "-") else "_" for ch in prompt)[:40]
-    if pure_sdxl_mode:
-        svname = f"{safe_prompt}_{mode_tag}.png"
-    else:
-        svname = (
-            f"{safe_prompt}_{mode_tag}_"
-            f"C{effective_color_scale}_G{effective_geometry_scale}_T{effective_texture_scale}.png"
-        )
-    final_img.save(os.path.join(save_dir, svname))
+    final_img.save(output_path)
 
 print(f"Generation done. Results saved at: {save_dir}")

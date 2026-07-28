@@ -6,12 +6,12 @@ from PIL import Image, ImageEnhance, ImageFilter
 import pillow_avif
 import zlib
 
-from pipeline_stable_diffusion_xl import StableDiffusionXLPipeline
-from ip_adapter import IPAdapterPlusXL
+from pipeline_stable_diffusion_xl_equal_attention_no_orthogonal import StableDiffusionXLPipeline
+from ip_adapter_equal_attention_no_orthogonal import IPAdapterPlusXL
 from util.torch_compat import ensure_supported_cuda_runtime
 
 
-RUNTIME_MODE_TAG = "color_texture_geometry"
+RUNTIME_MODE_TAG = "color_texture_geometry_equal_attention_no_orthogonal_equal13"
 TARGET_BLOCKS = ["down_blocks", "mid_block", "up_blocks"]
 
 
@@ -44,7 +44,7 @@ def _get_env_int_override(name, default):
 
 # 2026-04-13 temple texture_geometry reproduction setup.
 INPUT_COLOR = r"assets/color/color05.jpg" # Optional. Enables the color stream when set.
-INPUT_GEOMETRY = r"assets/geometry/animal08.jpeg"  # Optional. Enables the geometry stream when set.
+INPUT_GEOMETRY = r"assets/geometry/face05.webp"  # Optional. Enables the geometry stream when set.
 INPUT_TEXTURE = r"assets/texture/artwork_3.jpg"  # Optional. Enables the texture stream when set.
 # INPUT_GEOMETRY = None  # Optional. Enables the geometry stream when set.
 # INPUT_TEXTURE = None  # Optional. Enables the texture stream when set.
@@ -63,7 +63,7 @@ DEFAULT_NEGATIVE_PROMPT = (
     "dull, desaturated, greyish, monochromatic, low saturation, flat lighting"
 )
 
-save_dir = r"results/disentangled/18.4.8/repro_20260504"
+save_dir = r"results/disentangled/equal_attention_no_orthogonal_equal13/repro_20260504"
 save_dir = _get_env_text_override("SADIS_SAVE_DIR", save_dir)
 os.makedirs(save_dir, exist_ok=True)
 
@@ -72,7 +72,7 @@ os.makedirs(save_dir, exist_ok=True)
 # prompt_list = ["a house with trees"]
 prompt_list = [
     (
-        "A portrait of a man with beard Frontal Face"
+        "a man protrait"
     )
 ]
 
@@ -85,14 +85,14 @@ guidance_scale = 9.0
 texture2_scale = 0.0
 INPUT_TEXTURE2 = None
 
-color_scale = 1.6
-substract_scale = 1.0
-texture_scale = 1.4
-geometry_scale = 1.4
-geometry_sub_scale = 0.80
-texture_color_decouple = 0.10
-geometry_color_decouple = 0.35
-color_to_geometry_decouple = 0.25
+color_scale = 1.0
+substract_scale = 0.0
+texture_scale = 1.0
+geometry_scale = 1.0
+geometry_sub_scale = 0.0
+texture_color_decouple = 0.0
+geometry_color_decouple = 0.0
+color_to_geometry_decouple = 0.0
 
 wct_guidance = 0.28
 wct_starts_step_ratio = 0.45
@@ -103,11 +103,11 @@ mid_end_ratio = 0.70
 # color_stage_factors = (0.55, 0.80, 1.0)
 # geometry_stage_factors = (1.35, 1.05, 0.65)
 # texture_stage_factors = (0.38, 0.72, 0.82)
-color_stage_factors = (1.0, 1.0, 1.0)   # 隨步數增加，色彩應越穩定
-geometry_stage_factors = (1.0, 1.0, 0.0) # 後期幾何完全退場，交給 color/texture 收尾
-texture_stage_factors = (1.0, 1.0, 1.25)  # 後期由 texture 主導表面細節
-punish_weight = 0.0003
-punish_type = "soft-weight"
+color_stage_factors = (1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0)
+geometry_stage_factors = (1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0)
+texture_stage_factors = (1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0)
+punish_weight = 0.0
+punish_type = None
 SAVE_GEOMETRY_PREPROCESS_DEBUG = True
 GEOMETRY_LUMA_TARGET_MEAN = 175.0
 GEOMETRY_LUMA_MEAN_STRENGTH = 0.60
