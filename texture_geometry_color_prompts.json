@@ -1,0 +1,393 @@
+{
+    "geometry_prompts":  [
+                             {
+                                 "geometry_id":  "face01",
+                                 "geometry_image":  "assets copy/geometry/face01.jpeg",
+                                 "prompt":  "Portrait of a man with a beard, three-quarter view, striking blue eyes, sharp elegant features."
+                             },
+                             {
+                                 "geometry_id":  "face01",
+                                 "geometry_image":  "assets copy/geometry/face01.jpeg",
+                                 "prompt":  "Portrait of a boy with a hat, three-quarter view, striking blue eyes, sharp elegant features."
+                             },
+                             {
+                                 "geometry_id":  "face02",
+                                 "geometry_image":  "assets copy/geometry/face02.jpeg",
+                                 "prompt":  "Portrait of a man with a beard, frontal view, closed eyes, cute freckled face smiling up."
+                             },
+                             {
+                                 "geometry_id":  "face02",
+                                 "geometry_image":  "assets copy/geometry/face02.jpeg",
+                                 "prompt":  "Portrait of a boy with a hat, frontal view, closed eyes, cute freckled face smiling up."
+                             },
+                             {
+                                 "geometry_id":  "face03",
+                                 "geometry_image":  "assets copy/geometry/face03.jpeg",
+                                 "prompt":  "Portrait of a man with a beard, frontal view, oversized eyes, pouty lips, stylized graphic look."
+                             },
+                             {
+                                 "geometry_id":  "face03",
+                                 "geometry_image":  "assets copy/geometry/face03.jpeg",
+                                 "prompt":  "Portrait of a boy with a hat, frontal view, oversized eyes, pouty lips, stylized graphic look."
+                             },
+                             {
+                                 "geometry_id":  "face04",
+                                 "geometry_image":  "assets copy/geometry/face04.webp",
+                                 "prompt":  "Portrait of a man with a beard, abstract profile, single green eye, bold geometric red lips."
+                             },
+                             {
+                                 "geometry_id":  "face04",
+                                 "geometry_image":  "assets copy/geometry/face04.webp",
+                                 "prompt":  "Portrait of a boy with a hat, abstract profile, single green eye, bold geometric red lips."
+                             },
+                             {
+                                 "geometry_id":  "face05",
+                                 "geometry_image":  "assets copy/geometry/face05.jpeg",
+                                 "prompt":  "Portrait of a man with a beard, frontal view, massive round eyes, curious looking upward."
+                             },
+                             {
+                                 "geometry_id":  "face05",
+                                 "geometry_image":  "assets copy/geometry/face05.jpeg",
+                                 "prompt":  "Portrait of a boy with a hat, frontal view, massive round eyes, curious looking upward."
+                             },
+                             {
+                                 "geometry_id":  "face06",
+                                 "geometry_image":  "assets copy/geometry/face06.png",
+                                 "prompt":  "Portrait of a man with a beard, left profile, elongated elegant nose, traditional Indian style features."
+                             },
+                             {
+                                 "geometry_id":  "face06",
+                                 "geometry_image":  "assets copy/geometry/face06.png",
+                                 "prompt":  "Portrait of a boy with a hat, left profile, elongated elegant nose, traditional Indian style features."
+                             },
+                             {
+                                 "geometry_id":  "face07",
+                                 "geometry_image":  "assets copy/geometry/face07.jpeg",
+                                 "prompt":  "Portrait of a man with a beard, three-quarter view, delicate freckles, melancholic dark eyes."
+                             },
+                             {
+                                 "geometry_id":  "face07",
+                                 "geometry_image":  "assets copy/geometry/face07.jpeg",
+                                 "prompt":  "Portrait of a boy with a hat, three-quarter view, delicate freckles, melancholic dark eyes."
+                             },
+                             {
+                                 "geometry_id":  "face08",
+                                 "geometry_image":  "assets copy/geometry/face08.jpg",
+                                 "prompt":  "Portrait of a man with a beard, frontal view, thick bold eyebrows, full glossy red lips."
+                             },
+                             {
+                                 "geometry_id":  "face08",
+                                 "geometry_image":  "assets copy/geometry/face08.jpg",
+                                 "prompt":  "Portrait of a boy with a hat, frontal view, thick bold eyebrows, full glossy red lips."
+                             },
+                             {
+                                 "geometry_id":  "face09",
+                                 "geometry_image":  "assets copy/geometry/face09.jpeg",
+                                 "prompt":  "Portrait of a man with a beard, frontal view, winking eye, blowing a kiss, playful expression."
+                             },
+                             {
+                                 "geometry_id":  "face09",
+                                 "geometry_image":  "assets copy/geometry/face09.jpeg",
+                                 "prompt":  "Portrait of a boy with a hat, frontal view, winking eye, blowing a kiss, playful expression."
+                             },
+                             {
+                                 "geometry_id":  "face10",
+                                 "geometry_image":  "assets copy/geometry/face10.jpeg",
+                                 "prompt":  "Portrait of a man with a beard, symmetrical frontal view, abstract stylized eyes, bold black outlines."
+                             },
+                             {
+                                 "geometry_id":  "face10",
+                                 "geometry_image":  "assets copy/geometry/face10.jpeg",
+                                 "prompt":  "Portrait of a boy with a hat, symmetrical frontal view, abstract stylized eyes, bold black outlines."
+                             },
+                             {
+                                 "geometry_id":  "animal01",
+                                 "geometry_image":  "assets copy/geometry/animal01.jpg",
+                                 "prompt":  "A single dog on the ground, frontal view, soft pastel lines, gentle dark eyes."
+                             },
+                             {
+                                 "geometry_id":  "animal01",
+                                 "geometry_image":  "assets copy/geometry/animal01.jpg",
+                                 "prompt":  "A single cat on the ground, frontal view, soft pastel lines, gentle dark eyes."
+                             },
+                             {
+                                 "geometry_id":  "animal02",
+                                 "geometry_image":  "assets copy/geometry/animal02.jpg",
+                                 "prompt":  "A single dog on the ground, three-quarter view, flowing fine lines, curious gaze."
+                             },
+                             {
+                                 "geometry_id":  "animal02",
+                                 "geometry_image":  "assets copy/geometry/animal02.jpg",
+                                 "prompt":  "A single cat on the ground, three-quarter view, flowing fine lines, curious gaze."
+                             },
+                             {
+                                 "geometry_id":  "animal03",
+                                 "geometry_image":  "assets copy/geometry/animal03.jpeg",
+                                 "prompt":  "A single dog on the ground, frontal view, delicate watercolor bleeding, soft features."
+                             },
+                             {
+                                 "geometry_id":  "animal03",
+                                 "geometry_image":  "assets copy/geometry/animal03.jpeg",
+                                 "prompt":  "A single cat on the ground, frontal view, delicate watercolor bleeding, soft features."
+                             },
+                             {
+                                 "geometry_id":  "animal04",
+                                 "geometry_image":  "assets copy/geometry/animal04.webp",
+                                 "prompt":  "A single dog on the ground, profile view, bold black outlines, stylized sharp eye."
+                             },
+                             {
+                                 "geometry_id":  "animal04",
+                                 "geometry_image":  "assets copy/geometry/animal04.webp",
+                                 "prompt":  "A single cat on the ground, profile view, bold black outlines, stylized sharp eye."
+                             },
+                             {
+                                 "geometry_id":  "animal05",
+                                 "geometry_image":  "assets copy/geometry/animal05.jpg",
+                                 "prompt":  "A single dog on the ground, side profile, expressive messy lines, focused look."
+                             },
+                             {
+                                 "geometry_id":  "animal05",
+                                 "geometry_image":  "assets copy/geometry/animal05.jpg",
+                                 "prompt":  "A single cat on the ground, side profile, expressive messy lines, focused look."
+                             },
+                             {
+                                 "geometry_id":  "animal06",
+                                 "geometry_image":  "assets copy/geometry/animal06.jpeg",
+                                 "prompt":  "A single dog on the ground, frontal view, rigid geometric lines, symmetrical features."
+                             },
+                             {
+                                 "geometry_id":  "animal06",
+                                 "geometry_image":  "assets copy/geometry/animal06.jpeg",
+                                 "prompt":  "A single cat on the ground, frontal view, rigid geometric lines, symmetrical features."
+                             },
+                             {
+                                 "geometry_id":  "animal07",
+                                 "geometry_image":  "assets copy/geometry/animal07.jpeg",
+                                 "prompt":  "A single dog on the ground, frontal view, ethereal glowing lines, soft calm expression."
+                             },
+                             {
+                                 "geometry_id":  "animal07",
+                                 "geometry_image":  "assets copy/geometry/animal07.jpeg",
+                                 "prompt":  "A single cat on the ground, frontal view, ethereal glowing lines, soft calm expression."
+                             },
+                             {
+                                 "geometry_id":  "animal08",
+                                 "geometry_image":  "assets copy/geometry/animal08.jpeg",
+                                 "prompt":  "A single dog on the ground, low profile view, sleek graphic lines, dark silhouette."
+                             },
+                             {
+                                 "geometry_id":  "animal08",
+                                 "geometry_image":  "assets copy/geometry/animal08.jpeg",
+                                 "prompt":  "A single cat on the ground, low profile view, sleek graphic lines, dark silhouette."
+                             },
+                             {
+                                 "geometry_id":  "animal09",
+                                 "geometry_image":  "assets copy/geometry/animal09.jpeg",
+                                 "prompt":  "A single dog on the ground, three-quarter view, intricate ornate lines, detailed majestic features."
+                             },
+                             {
+                                 "geometry_id":  "animal09",
+                                 "geometry_image":  "assets copy/geometry/animal09.jpeg",
+                                 "prompt":  "A single cat on the ground, three-quarter view, intricate ornate lines, detailed majestic features."
+                             },
+                             {
+                                 "geometry_id":  "animal10",
+                                 "geometry_image":  "assets copy/geometry/animal10.jpeg",
+                                 "prompt":  "A single dog on the ground, three-quarter view, fine charcoal lines, realistic delicate snout."
+                             },
+                             {
+                                 "geometry_id":  "animal10",
+                                 "geometry_image":  "assets copy/geometry/animal10.jpeg",
+                                 "prompt":  "A single cat on the ground, three-quarter view, fine charcoal lines, realistic delicate snout."
+                             },
+                             {
+                                 "geometry_id":  "house01",
+                                 "geometry_image":  "assets copy/geometry/house01.jpg",
+                                 "prompt":  "One traditional Chinese temple on the ground, symmetrical path leading to grand medieval timbered mansion."
+                             },
+                             {
+                                 "geometry_id":  "house01",
+                                 "geometry_image":  "assets copy/geometry/house01.jpg",
+                                 "prompt":  "One beautiful church on the ground, symmetrical path leading to grand medieval timbered mansion."
+                             },
+                             {
+                                 "geometry_id":  "house02",
+                                 "geometry_image":  "assets copy/geometry/house02.jpg",
+                                 "prompt":  "One traditional Chinese temple on the ground, asymmetrical lakeside composition with simple rustic stone cottage."
+                             },
+                             {
+                                 "geometry_id":  "house02",
+                                 "geometry_image":  "assets copy/geometry/house02.jpg",
+                                 "prompt":  "One beautiful church on the ground, asymmetrical lakeside composition with simple rustic stone cottage."
+                             },
+                             {
+                                 "geometry_id":  "house03",
+                                 "geometry_image":  "assets copy/geometry/house03.jpg",
+                                 "prompt":  "One traditional Chinese temple on the ground, minimalist composition featuring tiny white cottage under mountain."
+                             },
+                             {
+                                 "geometry_id":  "house03",
+                                 "geometry_image":  "assets copy/geometry/house03.jpg",
+                                 "prompt":  "One beautiful church on the ground, minimalist composition featuring tiny white cottage under mountain."
+                             },
+                             {
+                                 "geometry_id":  "house04",
+                                 "geometry_image":  "assets copy/geometry/house04.jpeg",
+                                 "prompt":  "One traditional Chinese temple on the ground, centered vertical framing of symmetrical brick Victorian townhouse."
+                             },
+                             {
+                                 "geometry_id":  "house04",
+                                 "geometry_image":  "assets copy/geometry/house04.jpeg",
+                                 "prompt":  "One beautiful church on the ground, centered vertical framing of symmetrical brick Victorian townhouse."
+                             },
+                             {
+                                 "geometry_id":  "house05",
+                                 "geometry_image":  "assets copy/geometry/house05.jpeg",
+                                 "prompt":  "One traditional Chinese temple on the ground, dynamic vertical perspective of narrow, colorful whimsical buildings."
+                             },
+                             {
+                                 "geometry_id":  "house05",
+                                 "geometry_image":  "assets copy/geometry/house05.jpeg",
+                                 "prompt":  "One beautiful church on the ground, dynamic vertical perspective of narrow, colorful whimsical buildings."
+                             },
+                             {
+                                 "geometry_id":  "house06",
+                                 "geometry_image":  "assets copy/geometry/house06.jpeg",
+                                 "prompt":  "One traditional Chinese temple on the ground, three-quarter angle displaying sunny two-story suburban villa."
+                             },
+                             {
+                                 "geometry_id":  "house06",
+                                 "geometry_image":  "assets copy/geometry/house06.jpeg",
+                                 "prompt":  "One beautiful church on the ground, three-quarter angle displaying sunny two-story suburban villa."
+                             },
+                             {
+                                 "geometry_id":  "house07",
+                                 "geometry_image":  "assets copy/geometry/house07.jpeg",
+                                 "prompt":  "One traditional Chinese temple on the ground, elevated scenic view looking down at distant red barns."
+                             },
+                             {
+                                 "geometry_id":  "house07",
+                                 "geometry_image":  "assets copy/geometry/house07.jpeg",
+                                 "prompt":  "One beautiful church on the ground, elevated scenic view looking down at distant red barns."
+                             },
+                             {
+                                 "geometry_id":  "house08",
+                                 "geometry_image":  "assets copy/geometry/house08.jpeg",
+                                 "prompt":  "One traditional Chinese temple on the ground, charming close-up framing of cozy stone autumn cottage."
+                             },
+                             {
+                                 "geometry_id":  "house08",
+                                 "geometry_image":  "assets copy/geometry/house08.jpeg",
+                                 "prompt":  "One beautiful church on the ground, charming close-up framing of cozy stone autumn cottage."
+                             },
+                             {
+                                 "geometry_id":  "seen01",
+                                 "geometry_image":  "assets copy/geometry/seen01.jpg",
+                                 "prompt":  "A building of a beautiful church in a city, two-point perspective showing sharp corner of a stylized club."
+                             },
+                             {
+                                 "geometry_id":  "seen01",
+                                 "geometry_image":  "assets copy/geometry/seen01.jpg",
+                                 "prompt":  "A building of a traditional Chinese temple in a forest, two-point perspective showing sharp corner of a stylized club."
+                             },
+                             {
+                                 "geometry_id":  "seen02",
+                                 "geometry_image":  "assets copy/geometry/seen02.webp",
+                                 "prompt":  "A building of a beautiful church in a city, extreme worm\u0027s-eye view looking up at a towering building."
+                             },
+                             {
+                                 "geometry_id":  "seen02",
+                                 "geometry_image":  "assets copy/geometry/seen02.webp",
+                                 "prompt":  "A building of a traditional Chinese temple in a forest, extreme worm\u0027s-eye view looking up at a towering building."
+                             },
+                             {
+                                 "geometry_id":  "seen03",
+                                 "geometry_image":  "assets copy/geometry/seen03.png",
+                                 "prompt":  "A building of a beautiful church in a city, symmetrical path winding through vibrant, abstract geometric forest."
+                             },
+                             {
+                                 "geometry_id":  "seen03",
+                                 "geometry_image":  "assets copy/geometry/seen03.png",
+                                 "prompt":  "A building of a traditional Chinese temple in a forest, symmetrical path winding through vibrant, abstract geometric forest."
+                             },
+                             {
+                                 "geometry_id":  "seen04",
+                                 "geometry_image":  "assets copy/geometry/seen04.png",
+                                 "prompt":  "A building of a beautiful church in a city, linear perspective following dirt road toward small white house."
+                             },
+                             {
+                                 "geometry_id":  "seen04",
+                                 "geometry_image":  "assets copy/geometry/seen04.png",
+                                 "prompt":  "A building of a traditional Chinese temple in a forest, linear perspective following dirt road toward small white house."
+                             },
+                             {
+                                 "geometry_id":  "seen05",
+                                 "geometry_image":  "assets copy/geometry/seen05.jpeg",
+                                 "prompt":  "A building of a beautiful church in a city, high-angle perspective scanning dark, repetitive high-rise city blocks."
+                             },
+                             {
+                                 "geometry_id":  "seen05",
+                                 "geometry_image":  "assets copy/geometry/seen05.jpeg",
+                                 "prompt":  "A building of a traditional Chinese temple in a forest, high-angle perspective scanning dark, repetitive high-rise city blocks."
+                             },
+                             {
+                                 "geometry_id":  "seen06",
+                                 "geometry_image":  "assets copy/geometry/seen06.jpeg",
+                                 "prompt":  "A building of a beautiful church in a city, looking straight up into hexagonal courtyard of red apartment."
+                             },
+                             {
+                                 "geometry_id":  "seen06",
+                                 "geometry_image":  "assets copy/geometry/seen06.jpeg",
+                                 "prompt":  "A building of a traditional Chinese temple in a forest, looking straight up into hexagonal courtyard of red apartment."
+                             },
+                             {
+                                 "geometry_id":  "seen07",
+                                 "geometry_image":  "assets copy/geometry/seen07.jpeg",
+                                 "prompt":  "A building of a beautiful church in a city, vertigo-inducing bird\u0027s-eye view looking down at dense skyscrapers."
+                             },
+                             {
+                                 "geometry_id":  "seen07",
+                                 "geometry_image":  "assets copy/geometry/seen07.jpeg",
+                                 "prompt":  "A building of a traditional Chinese temple in a forest, vertigo-inducing bird\u0027s-eye view looking down at dense skyscrapers."
+                             }
+                         ],
+    "color_prompts":  [
+                          {
+                              "color_image":  "assets copy/color/1.png",
+                              "prompt":  "crimson, sky blue, navy, cream, sage green, bright direct light"
+                          },
+                          {
+                              "color_image":  "assets copy/color/color002.jpeg",
+                              "prompt":  "neon yellow, orange, lime, blue, magenta, peach, high saturation"
+                          },
+                          {
+                              "color_image":  "assets copy/color/color003.jpeg",
+                              "prompt":  "deep navy, dark teal, ochre, muted brick red, moody shadows"
+                          },
+                          {
+                              "color_image":  "assets copy/color/color004.jpeg",
+                              "prompt":  "deep navy, coral orange, peach pink, golden yellow, cool warm contrast"
+                          },
+                          {
+                              "color_image":  "assets copy/color/color005.jpeg",
+                              "prompt":  "warm coral, peach pink, soft beige, pale lavender, diffused light"
+                          },
+                          {
+                              "color_image":  "assets copy/color/color006.png",
+                              "prompt":  "deep burgundy, navy, black, pale violet, somber tone"
+                          },
+                          {
+                              "color_image":  "assets copy/color/color007.jpeg",
+                              "prompt":  "dark teal, mint green, forest green, cream highlights"
+                          },
+                          {
+                              "color_image":  "assets copy/color/color05.jpg",
+                              "prompt":  "sunset orange, chocolate brown, amber, warm twilight shadows"
+                          },
+                          {
+                              "color_image":  "assets copy/color/color10.jpg",
+                              "prompt":  "sky blue, powder blue, off-white, pale mint, bright low saturation"
+                          }
+                      ]
+}
+
